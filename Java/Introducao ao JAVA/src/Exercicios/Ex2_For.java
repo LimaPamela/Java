@@ -1,7 +1,7 @@
 /*Ler 10 números e imprimir quantos são pares e quantos são ímpares. (FOR)*/
 
 import java.util.Scanner;
-public class Ex2_Laco {
+public class Ex2_For {
 
 	public static void main(String[] args) {
 		
