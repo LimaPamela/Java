@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.generation.cliente.model.Paciente"/>
+    <fullyQualifiedTypeName name="com.generation.funcionario.model.Funcionario"/>
+    <fullyQualifiedTypeName name="com.generation.conta.model.ContaCorrente"/>
+    <fullyQualifiedTypeName name="com.generation.conta.model.ContaInss"/>
+    <fullyQualifiedTypeName name="com.generation.conta.model.Banco"/>
+    <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
+    <fullyQualifiedTypeName name="com.generation.conta.model.Conta"/>
+    <fullyQualifiedTypeName name="com.generation.conta.repository.ContaRepository"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.generention.genjobs.model.Desenvolvedor"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
 </qualifiedTypeNameHistroy>

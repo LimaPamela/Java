@@ -34,28 +34,18 @@ public class Ex {
 			System.out.println("Digite a sua opção");
 			op = leia.nextInt();
 			
-			switch(op) {
+		switch(op) {
 				
 			case 1:
-				
-				
-				
-				
+			
 				for(lin=0;lin<2;lin++) {
 					for(col=0;col<2;col++) {
 						matriz3[lin][col] = matriz1[lin] [col] + matriz2[lin][col];
 					}
 				}
-			
-			
-		
-			
-			
-			
-			
-			}
 		}
-		
+	
 	}
-
 }
+
+			
