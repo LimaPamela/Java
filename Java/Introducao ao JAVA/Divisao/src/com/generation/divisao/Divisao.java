@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Divisao {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ExcecaoSimples {
 		
 		int divisor, dividendo = 0;
 		boolean loop = true;
@@ -24,26 +24,33 @@ public class Divisao {
 		
 		loop = false;
 			
-		}catch(ArithmeticException e) {
-			System.err.println("Exceção: " + e);
+		}catch (ArithmeticException e) {
+			//System.err.println("\nExceção: " + e);
 			leia.nextLine();
-			System.out.println("\n Digite valores inteiros diferentes do que zero! ");
-		}
-		catch(InputMismatchException e) {
-			System.err.println("Exceção: " + e);
+			System.out.println("\nDigite valores inteiros diferentes de zero!");
+		}catch (InputMismatchException e) {
+			System.err.println("\nExceção: " + e);
 			leia.nextLine();
-			System.out.println("\n Digite valores inteiros ! ");
-		}finally // erro que não dá para resolver
-		{
-			System.out.println("\n Programa encerrado! ");
-		}
+			System.out.println("\nDigite valores inteiros!");
+		}finally {
+			// Executa o Método Lança Exceção
+			leia.close();
+			lancaExcecao(100);
+			}
 	}
 
-	while(loop);
-			
+	while (loop);
+	
 	}
 	
-	public static void dividir(int dividendo, int divisor) throws ArithmeticException {
-		System.out.println("\n Divisão  = " + (dividendo / divisor));
+	public static void dividir (int dividendo, int divisor) {
+		System.out.println("Divisão = " + (dividendo / divisor));
+	}
+
+	//O Throws apenas indica a exceção que pode ser lançada
+	public static void lancaExcecao(int numero) throws ExcecaoSimples{
+		if (numero > 10)
+			//Se o numero enviado for maior que 10 a ExcecaoSimples é lançada com o throw
+			throw new ExcecaoSimples("Exceção Simples: Numero menor do que 10!");
 	}
 }

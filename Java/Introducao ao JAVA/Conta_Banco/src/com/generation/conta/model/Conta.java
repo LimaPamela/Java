@@ -7,7 +7,7 @@ public class Conta {
 	private int tipo;
 	private String titular;
 	private float saldo;
-	
+
 	public Conta(int numero, String agencia, int tipo, String titular, float saldo) {
 		this.numero = numero;
 		this.agencia = agencia;
@@ -15,10 +15,10 @@ public class Conta {
 		this.titular = titular;
 		this.saldo = saldo;
 	}
-	
-	public Conta() {}
-	
-	
+
+	public Conta() {
+	}
+
 	public int getNumero() {
 		return numero;
 	}
@@ -58,25 +58,18 @@ public class Conta {
 	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
-	
+
 	public void sacar(float valor) {
 		if (this.getSaldo() < valor)
-		System.out.println("\n Saldo insuficiente!!");
-		
+			System.out.println("\n Saldo Insuficiente!");
+
 		this.setSaldo(this.getSaldo() - valor);
-		
-		/*if (valor <= saldo) {
-			saldo -= valor;
-			return true;
-		}else {
-			System.out.println("você tentou sacar R$ " +valor+ " , mas seu saldo é insuficiente! Seu saldo é R$ " +saldo);
-		}
-			
-			return false;*/
 	}
+
+	public void depositar(float valor) { }
 	
 	public void visualizar() {
-		
+
 		String tipo = "";
 
 		switch (this.tipo) {
@@ -87,16 +80,16 @@ public class Conta {
 			tipo = "Conta INSS";
 			break;
 		}
-		
-		
-		System.out.println("**********************************");
-		System.out.println("\n Dados da Conta \n");
-		System.out.println("**********************************");
-		System.out.println("Número da Conta:  "+this.numero);
-		System.out.println("Número da Agencia:  "+this.agencia);
-		System.out.println("Tipo da Conta:  " + tipo);
-		System.out.println("Nome do Titular:  "+this.titular);
-		System.out.println("Saldo da conta:  "+this.saldo);
-		
+
+		System.out.println("\n\n*********************************************************************");
+		System.out.println("Dados da Conta:");
+		System.out.println("*********************************************************************");
+		System.out.println("Numero da Conta: " + this.numero);
+		System.out.println("Agência: " + this.agencia);
+		System.out.println("Tipo da Conta: " + tipo);
+		System.out.println("Titular: " + this.titular);
+		System.out.println("Saldo: " + this.saldo);
+
 	}
+
 }

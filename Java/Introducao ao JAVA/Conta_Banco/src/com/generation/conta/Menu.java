@@ -1,12 +1,12 @@
 package com.generation.conta;
 
+import java.io.IOException;
 import java.util.Scanner;
+
 import com.generation.conta.model.Banco;
-import com.generation.conta.model.Conta;
 import com.generation.conta.model.ContaCorrente;
 import com.generation.conta.model.ContaInss;
-import java.io.IOException;
-import com.generation.conta.Cores;
+import com.generation.conta.util.Cores;
 
 public class Menu {
 
@@ -14,22 +14,33 @@ public class Menu {
 		
 		Scanner leia = new Scanner(System.in);
 			
+		Banco contas = new Banco();
+		
+		ContaCorrente cc1 = new ContaCorrente(contas.gerarNumero(), "123", 1, "João da Silva", 1000f, 100.0f);
+		contas.inserir(cc1);
+		
+		ContaCorrente cc2 = new ContaCorrente(contas.gerarNumero(), "124", 1, "Maria da Silva", 2000f, 100.0f);
+		contas.inserir(cc2);
+		
+		ContaInss ci1 = new ContaInss(contas.gerarNumero(), "124", 2, "Maria da Silva", 2000f, 123456789);
+		contas.inserir(ci1);
+		
 		int opcao, numero, tipo, numeroDeposito, beneficio = 0;
 		String titular, agencia = "";
 		float saldo, limite, valor = 0.0f;
 		
 		while(true) {
 
-				System.out.println(Cores.TEXT_GREEN + "***********************************************" 
+				System.out.println(Cores.TEXT_GREEN + "*********************************************************************" 
 													+ Cores.TEXT_RESET);
 				System.out.println(Cores.TEXT_WHITE_BOLD + Cores.ANSI_BLUE_BACKGROUND 
-													+ "   ");
+													+ "                                                                     ");
 				System.out.println(Cores.TEXT_WHITE_BOLD + Cores.ANSI_BLUE_BACKGROUND
-													+ "         ");
+													+ "                       BANCO GENERATION BRASIL                       ");
 				System.out.println(Cores.TEXT_WHITE_BOLD + Cores.ANSI_BLUE_BACKGROUND 
-													+ "      ");
+													+ "                                                                     ");
 				System.out.println(Cores.TEXT_RESET + Cores.TEXT_GREEN
-													+ "************************************************");
+													+ "*********************************************************************");
 				System.out.println(Cores.TEXT_GREEN + Cores.ANSI_BLUE_BACKGROUND
 														 + "                                                                     ");
 				System.out.println(Cores.TEXT_GREEN_BOLD + "            1 - Criar Conta                                          ");
@@ -41,7 +52,7 @@ public class Menu {
 				System.out.println(Cores.TEXT_GREEN_BOLD + "            7 - Sair                                                 ");
 				System.out.println(Cores.TEXT_GREEN_BOLD + "                                                                     " 
 													+ Cores.TEXT_RESET);
-				System.out.println(Cores.TEXT_GREEN + "*************************************************");
+				System.out.println(Cores.TEXT_GREEN + "*********************************************************************");
 				System.out.println(Cores.TEXT_YELLOW + " Entre com a opção desejada:                         "
 													+ Cores.TEXT_RESET);
 				opcao = leia.nextInt();
@@ -74,13 +85,13 @@ public class Menu {
 						System.out.println("Digite o Limite de Crédito (R$): ");
 						limite = leia.nextFloat();
 						
-						// Criar Conta Corrente
+						contas.inserir(new ContaCorrente(contas.gerarNumero(), agencia, tipo, titular, saldo, limite));
 						
 					}else {
 						System.out.println("Digite o Numero do Benefício: ");
 						beneficio = leia.nextInt();
 						
-						// Criar Conta INSS
+						contas.inserir(new ContaInss(contas.gerarNumero(), agencia, tipo, titular, saldo, beneficio));
 						
 					}
 										
@@ -93,7 +104,7 @@ public class Menu {
 					System.out.println("Digite o Numero da conta: ");
 					numero = leia.nextInt();
 							
-					// Ver Saldo
+					contas.verSaldo(contas.procurar(numero));
 					
 					keyPress();
 					
@@ -105,7 +116,7 @@ public class Menu {
 					System.out.println("Digite o Numero da conta: ");
 					numero = leia.nextInt();
 					
-					// Ver dados da Conta
+					contas.visualizar(contas.procurar(numero));
 					
 					keyPress();
 	
@@ -118,7 +129,7 @@ public class Menu {
 					System.out.println("Digite o Valor do Saque (R$): ");
 					valor = leia.nextFloat();
 					
-					// Sacar
+					contas.sacar(contas.procurar(numero), valor);
 					
 					keyPress();
 
@@ -131,7 +142,7 @@ public class Menu {
 					System.out.println("Digite o Valor do Depósito (R$): ");
 					valor = leia.nextFloat();
 					
-					// Depositar - apenas Conta Corrente
+					contas.depositar(contas.procurar(numero), valor);
 					
 					keyPress();
 					
@@ -147,7 +158,7 @@ public class Menu {
 					System.out.println("Digite o Valor da Transferência (R$): ");
 					valor = leia.nextFloat();
 					
-					// Transferir - apenas Conta Corrente
+					contas.transferir(contas.procurar(numero), contas.procurar(numeroDeposito), valor);
 					
 					keyPress();
 					
@@ -179,4 +190,5 @@ public class Menu {
 		
 		}
 	}
+
 }

@@ -1,7 +1,7 @@
 package com.generation.conta.model;
 
 public class ContaInss extends Conta{
-	
+
 	private int beneficio;
 
 	public ContaInss(int numero, String agencia, int tipo, String titular, float saldo, int beneficio) {
@@ -17,9 +17,10 @@ public class ContaInss extends Conta{
 		this.beneficio = beneficio;
 	}
 	
-	public void visualizar () {
+	public void visualizar() {
+
 		super.visualizar();
-		System.out.println("Número do benefício: " + this.beneficio);
+		System.out.println("Numero do Benefício: " + this.beneficio);
 	
 	}
 }
