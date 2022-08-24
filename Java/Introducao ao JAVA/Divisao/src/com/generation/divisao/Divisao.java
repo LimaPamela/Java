@@ -52,5 +52,7 @@ public class Divisao {
 		if (numero > 10)
 			//Se o numero enviado for maior que 10 a ExcecaoSimples é lançada com o throw
 			throw new ExcecaoSimples("Exceção Simples: Numero menor do que 10!");
+
+
 	}
 }

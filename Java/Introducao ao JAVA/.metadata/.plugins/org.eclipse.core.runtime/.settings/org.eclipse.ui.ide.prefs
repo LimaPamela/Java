@@ -1,6 +1,10 @@
+IMPORT_FILES_AND_FOLDERS_MODE=prompt
 IMPORT_FILES_AND_FOLDERS_RELATIVE=true
 IMPORT_FILES_AND_FOLDERS_TYPE=23,1
+IMPORT_FILES_AND_FOLDERS_VIRTUAL_FOLDER_MODE=prompt
+SHOW_LOCATION=true
+SYSTEM_EXPLORER=C\:\\Users\\Eu\\Desktop\\aulagithub\\Aula-Generation
 eclipse.preferences.version=1
-platformState=1659392662944
+platformState=1660735947820
 quickStart=false
 tipsAndTricks=true
